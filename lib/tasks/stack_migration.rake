@@ -14,8 +14,8 @@ namespace :stack_migration do
     solr = Valkyrie::MetadataAdapter.find(:solr)
     postgres = Valkyrie::MetadataAdapter.find(:postgres)
 
-    solr.query_service.find_all.each do |resource|
-       postgres.persister.save(resource: resource)
+    postgres.query_service.find_all.each do |resource|
+       solr.persister.save(resource: resource)
     end 
   end
 end
