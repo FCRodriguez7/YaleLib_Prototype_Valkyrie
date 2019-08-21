@@ -16,11 +16,6 @@ Rails.application.config.to_prepare do
       :disk
   )
 
-#  Valkyrie::StorageAdapter.register(
-#      Valkyrie::Storage::Fedora.new(connection: Ldp::Client.new("http://localhost:8988/rest")),
-#      :fedora
-#  )
-
   Valkyrie::StorageAdapter.register(
       Valkyrie::Storage::Memory.new,
       :memory

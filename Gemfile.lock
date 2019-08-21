@@ -367,6 +367,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   blacklight
   bootstrap (~> 4.0)
   byebug
@@ -394,4 +395,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.3

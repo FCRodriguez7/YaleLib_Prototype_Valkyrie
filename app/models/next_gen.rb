@@ -9,8 +9,6 @@ end
 class MyChangeSet < Valkyrie::ChangeSet
   self.fields = [:title]
   self.fields = [:member_ids]
-  self.fields = [:read_groups]
   validates :title, presence: true
   validates :member_ids, presence: true
-  validates :read_groups, presence: true
 end
