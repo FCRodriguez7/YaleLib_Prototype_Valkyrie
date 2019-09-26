@@ -201,4 +201,23 @@ class CatalogController < ApplicationController
     # default 'mySuggester', uncomment and provide it below
     # config.autocomplete_suggester = 'mySuggester'
   end
+  def show
+    ng = Valkyrie::MetadataAdapter.find(:solr).query_service.find_all.first
+    mychangeset = MapChangeSet.new(ng)
+    mychangeset.changed? #false, the changeset is only aware if itself has been changed.
+    mychangeset.validate(title: "I had to do it to em didn't I")
+    mychangeset.changed #{title: => true}
+
+    ng.title # Alen
+
+    mychangeset.sync
+    ng.title # newAlen
+
+    change_set_persister = ChangeSetPersister.new(
+        metadata_adapter: Valkyrie.config.metadata_adapter,
+        storage_adapter: Valkyrie::MetadataAdapter.find(:solr)
+    )
+    updated_resource = change_set_persister.save(change_set: mychangeset)
+    byebug
+  end
 end
