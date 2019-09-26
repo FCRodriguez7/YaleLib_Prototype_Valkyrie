@@ -1,5 +1,5 @@
 development:
-  metadata_adapter: postgres
+  metadata_adapter: solr
   storage_adapter: disk
 
 test:
